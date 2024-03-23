@@ -1,0 +1,23 @@
+{
+  "name": "isteadipisci",
+  "version": "1.0.0",
+  "description": "Exhaustive check for typescript type never",
+  "main": "lib-cjs/index.js",
+  "module": "lib-esm/index.js",
+  "types": "lib-cjs/index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FrancisTorp/isteadipisci.git"
+  },
+  "author": "JaylenOberbrunner",
+  "license": "MIT",
+  "scripts": {
+    "build": "yarn build:clean && yarn build:cjs && yarn build:esm",
+    "build:clean": "rm -rf ./lib-cjs ./lib-esm",
+    "build:cjs": "tsc -p src",
+    "build:esm": "tsc -p src --module es2015 --outDir ./lib-esm",
+    "example": "tsc -p example && node example-js/example/index.js",
+    "publish-package": "yarn build && yarn version && git push && git push --tags && npm publish"
+  },
+  "homepage": "https://github.com/FrancisTorp/isteadipisci.git"
+}
